@@ -4,8 +4,6 @@ import { auth } from '../firebase';
 import { signOut } from 'firebase/auth';
 import { useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Icon from 'react-native-vector-icons/FontAwesomeIcon'
 
 
 const Tab = createBottomTabNavigator();
@@ -65,7 +63,7 @@ const FAQScreen = () => {
 function HomeStack() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeScreen} options={{tabBarIcon: () => (<FontAwesomeIcon icon={icon({name: 'coffee', style: 'solid'})} />)}}/>
+      <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Find" component={FindScreen} />
       <Tab.Screen name="Setting" component={SettingScreen} />
       <Tab.Screen name="FAQ" component={FAQScreen} />
