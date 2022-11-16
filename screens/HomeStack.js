@@ -3,6 +3,12 @@ import React from 'react';
 import { auth } from '../firebase';
 import { signOut } from 'firebase/auth';
 import { useNavigation } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Icon from 'react-native-vector-icons/FontAwesomeIcon'
+
+
+const Tab = createBottomTabNavigator();
 
 const HomeScreen = () => {
 
@@ -30,7 +36,44 @@ const HomeScreen = () => {
   );
 }
 
-export default HomeScreen;
+const SettingScreen = () => {
+  return (
+    <View style={styles.container}>
+      <Text>Setting</Text>
+    </View>
+  );
+}
+
+const FindScreen = () => {
+  return (
+    <View style={styles.container}>
+      <Text>Find</Text>
+    </View>
+  );
+}
+
+const FAQScreen = () => {
+  return (
+    <View style={styles.container}>
+      <Text>FAQ</Text>
+    </View>
+  );
+}
+
+
+
+function HomeStack() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} options={{tabBarIcon: () => (<FontAwesomeIcon icon={icon({name: 'coffee', style: 'solid'})} />)}}/>
+      <Tab.Screen name="Find" component={FindScreen} />
+      <Tab.Screen name="Setting" component={SettingScreen} />
+      <Tab.Screen name="FAQ" component={FAQScreen} />
+    </Tab.Navigator>
+  );
+}
+
+export default HomeStack;
 
 const styles = StyleSheet.create({
   container: {
